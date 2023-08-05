@@ -1,0 +1,17 @@
+question link -: https://leetcode.com/problems/binary-tree-postorder-traversal/
+
+soluttion -: 
+
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> pre = new LinkedList<Integer>();
+		preHelper(root,pre);
+		return pre;
+	}
+	public void preHelper(TreeNode root, List<Integer> pre) {
+		if(root==null) return;
+		preHelper(root.left,pre);
+		preHelper(root.right,pre);
+        pre.add(root.val);
+	}
+    }
